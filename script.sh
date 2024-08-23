@@ -9,6 +9,7 @@ sudo mv consoles/ console_libraries/ /etc/prometheus/
 prometheus --version
 sudo useradd -rs /bin/false prometheus
 sudo chown -R prometheus: /etc/prometheus /var/lib/prometheus
+sudo mv configs/prometheus.yaml /etc/prometheus/prometheus.yml
 sudo chcon -t bin_t /usr/local/bin/prometheus
 sudo mv services/prometheus.service /etc/systemd/system/prometheus.service
 sudo systemctl daemon-reload
