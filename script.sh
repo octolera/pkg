@@ -4,12 +4,12 @@ tar xvfz tar/prometheus-2.37.6.linux-amd64.tar.gz
 sudo mkdir /etc/prometheus /var/lib/prometheus
 cd prometheus-2.37.6.linux-amd64
 sudo mv prometheus promtool /usr/local/bin/
-sudo mv prometheus.yml /etc/prometheus/prometheus.yml
+#sudo mv prometheus.yml /etc/prometheus/prometheus.yml
 sudo mv consoles/ console_libraries/ /etc/prometheus/
 prometheus --version
 sudo useradd -rs /bin/false prometheus
 sudo chown -R prometheus: /etc/prometheus /var/lib/prometheus
-sudo mv configs/prometheus.yaml /etc/prometheus/prometheus.yml
+sudo mv configs/prometheus.yml /etc/prometheus/prometheus.yml
 sudo chcon -t bin_t /usr/local/bin/prometheus
 sudo mv services/prometheus.service /etc/systemd/system/prometheus.service
 sudo systemctl daemon-reload
@@ -31,6 +31,7 @@ sudo systemctl status node_exporter | head -n 15
 
 #grafana
 sudo dpkg -i deb/*
+sed -i '0,/"id": .*/{s/"id": .*/"id": null,/}' grafana-dashboards/*.json
 sudo systemctl daemon-reload
 sudo systemctl enable grafana-server
 sudo systemctl start grafana-server
