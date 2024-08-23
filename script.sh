@@ -5,7 +5,7 @@ sudo mkdir /etc/prometheus /var/lib/prometheus
 cd prometheus-2.37.6.linux-amd64
 sudo cp prometheus promtool /usr/local/bin/
 #sudo cp prometheus.yml /etc/prometheus/prometheus.yml
-sudo cp consoles/ console_libraries/ /etc/prometheus/
+sudo cp -r consoles/ console_libraries/ /etc/prometheus/
 prometheus --version
 sudo useradd -rs /bin/false prometheus
 sudo chown -R prometheus: /etc/prometheus /var/lib/prometheus
