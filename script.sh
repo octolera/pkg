@@ -34,7 +34,7 @@ sudo dpkg -i deb/*
 sed -i '0,/"id": .*/{s/"id": .*/"id": null,/}' grafana-dashboards/*.json
 sudo cp configs/grafana.ini /etc/grafana/grafana.ini
 sudo cp configs/datasources.yaml /etc/grafana/provisioning/datasources/datasources.yml
-sudo cp -r dashboards /etc/grafana/provisioning/dashboards
+sudo cp gragana-dashboards/* /etc/grafana/provisioning/dashboards
 sudo chown grafana /etc/grafana/provisioning/dashboards/ /etc/grafana/provisioning/dashboards/*
 sudo systemctl daemon-reload
 sudo systemctl enable grafana-server
