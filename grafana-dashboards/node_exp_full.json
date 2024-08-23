@@ -13,7 +13,7 @@
   "__requires": [
     {
       "type": "panel",
-      "id": "bargauge",
+      "id": null,
       "name": "Bar gauge",
       "version": ""
     },
